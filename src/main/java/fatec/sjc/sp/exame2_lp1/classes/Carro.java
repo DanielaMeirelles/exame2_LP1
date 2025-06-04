@@ -2,11 +2,19 @@ package fatec.sjc.sp.exame2_lp1.classes;
 
 public class Carro {
 
+    private int id;
     private String modelo;
     private String cor;
-    private double velocidade;
+    private int velocidade;
 
-    public Carro(String modelo, String cor, double velocidade) {
+    public Carro(int id, String modelo, String cor, int velocidade) {
+        setId(id);
+        setModelo(modelo);
+        setCor(cor);
+        setVelocidade(velocidade);
+    }
+
+    public Carro(String modelo, String cor, int velocidade) {
         setModelo(modelo);
         setCor(cor);
         setVelocidade(velocidade);
@@ -26,6 +34,14 @@ public class Carro {
         System.out.println("Modelo: " + modelo + ", Cor: " + cor + ", Velocidade: " + velocidade + " km/h.");
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getModelo() {
         return modelo;
     }
@@ -42,11 +58,11 @@ public class Carro {
         this.cor = cor;
     }
 
-    public double getVelocidade() {
+    public int getVelocidade() {
         return velocidade;
     }
 
-    public void setVelocidade(double velocidade) {
+    public void setVelocidade(int velocidade) {
         this.velocidade = velocidade;
     }
 }

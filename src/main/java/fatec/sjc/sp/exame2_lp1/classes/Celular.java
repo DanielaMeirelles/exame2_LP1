@@ -2,9 +2,17 @@ package fatec.sjc.sp.exame2_lp1.classes;
 
 public class Celular {
 
+    private int id;
     private String marca;
     private String modelo;
     private int armazenamento;
+
+    public Celular(int id, String marca, String modelo, int armazenamento) {
+        setId(id);
+        setMarca(marca);
+        setModelo(modelo);
+        setArmazenamento(armazenamento);
+    }
 
     public Celular(String marca, String modelo, int armazenamento) {
         setMarca(marca);
@@ -22,6 +30,14 @@ public class Celular {
 
     public void exibirInfo() {
         System.out.println("Marca: " + marca + ", Modelo: " + modelo + ", Armazenamento: " + armazenamento + "GB.");
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMarca() {

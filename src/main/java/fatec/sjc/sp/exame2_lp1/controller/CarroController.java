@@ -1,6 +1,7 @@
 package fatec.sjc.sp.exame2_lp1.controller;
 
 import fatec.sjc.sp.exame2_lp1.classes.Carro;
+import fatec.sjc.sp.exame2_lp1.dataBase.CarroDAO;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,7 +31,7 @@ public class CarroController {
     private TableColumn<Carro, String> colCor;
 
     @FXML
-    private TableColumn<Carro, Double> colVelocidade;
+    private TableColumn<Carro, Integer> colVelocidade;
 
     @FXML
     private TableColumn<Carro, Void> colAcoes;
@@ -39,6 +40,12 @@ public class CarroController {
 
     private Carro carro;
 
+    private CarroDAO carroDAO = new CarroDAO();
+
+    private Carro getCarroSelecionado() {
+        return tabelaCarros.getSelectionModel().getSelectedItem();
+    }
+
     @FXML
     public void initialize() {
         colModelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
@@ -46,6 +53,7 @@ public class CarroController {
         colVelocidade.setCellValueFactory(new PropertyValueFactory<>("velocidade"));
         colAcoes.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(null));
 
+        listaCarros.addAll(carroDAO.listar());
         tabelaCarros.setItems(listaCarros);
 
         configurarColunaAcoes();
@@ -63,6 +71,7 @@ public class CarroController {
 
                 btnExcluir.setOnAction(e -> {
                     Carro carro = getTableView().getItems().get(getIndex());
+                    carroDAO.deletar(carro.getId());
                     listaCarros.remove(carro);
                 });
 
@@ -71,7 +80,7 @@ public class CarroController {
                     txtModelo.setText(carro.getModelo());
                     txtCor.setText(carro.getCor());
                     txtVelocidade.setText(String.valueOf(carro.getVelocidade()));
-                    listaCarros.remove(carro);
+                    carroDAO.atualizar(carro.getId(), carro);
                 });
 
                 hbox.setStyle("-fx-alignment: CENTER;");
@@ -91,27 +100,30 @@ public class CarroController {
 
     @FXML
     public void onAcelerar() {
-        if (instanciarCarro()) {
-            carro.acelerar();
-            mostrarAlerta("O ", carro.getModelo() + " acelerou. Velocidade atual: " + txtVelocidade + "Km/h.");
+        Carro selecionado = getCarroSelecionado();
+        if (selecionado != null) {
+            selecionado.acelerar();
+            mostrarAlerta("O ", selecionado.getModelo() + " acelerou. Velocidade atual: " + txtVelocidade + "Km/h.");
         }
     }
 
     @FXML
     public void onFrear() {
-        if (instanciarCarro()) {
-            carro.frear();
-            mostrarAlerta("O ", carro.getModelo() + " freou. Velocidade atual: " + txtVelocidade + "Km/h.");
+        Carro selecionado = getCarroSelecionado();
+        if (selecionado != null) {
+            selecionado.frear();
+            mostrarAlerta("O ", selecionado.getModelo() + " freou. Velocidade atual: " + txtVelocidade + "Km/h.");
         }
     }
 
     @FXML
     public void onExibirDados() {
-        if (instanciarCarro()) {
-            carro.exibirDados();
-            String info = "Modelo: " + carro.getModelo() +
-                    "\nCor: " + carro.getCor() +
-                    "\nVelocidade: " + carro.getVelocidade();
+        Carro selecionado = getCarroSelecionado();
+        if (selecionado != null) {
+            selecionado.exibirDados();
+            String info = "Modelo: " + selecionado.getModelo() +
+                    "\nCor: " + selecionado.getCor() +
+                    "\nVelocidade: " + selecionado.getVelocidade();
             mostrarAlerta("Informações do Carro", info);
         }
     }
@@ -121,9 +133,10 @@ public class CarroController {
         try {
             String modelo = txtModelo.getText();
             String cor = txtCor.getText();
-            double velocidade = Double.parseDouble(txtVelocidade.getText());
+            int velocidade = Integer.parseInt(txtVelocidade.getText());
 
             Carro novoCarro = new Carro(modelo, cor, velocidade);
+            carroDAO.inserir(novoCarro);
             listaCarros.add(novoCarro);
 
             limparCampos();
@@ -141,7 +154,7 @@ public class CarroController {
         try {
             String modelo = txtModelo.getText();
             String cor = txtCor.getText();
-            double velocidade = Double.parseDouble(txtVelocidade.getText());
+            int velocidade = Integer.parseInt(txtVelocidade.getText());
             carro = new Carro(modelo, cor, velocidade);
             return true;
         } catch (Exception e) {

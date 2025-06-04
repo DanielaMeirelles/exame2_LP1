@@ -1,6 +1,7 @@
 package fatec.sjc.sp.exame2_lp1.controller;
 
 import fatec.sjc.sp.exame2_lp1.classes.Celular;
+import fatec.sjc.sp.exame2_lp1.dataBase.CelularDAO;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -38,6 +39,12 @@ public class CelularController {
 
     private Celular celular;
 
+    private CelularDAO celularDAO = new CelularDAO();
+
+    private Celular getCelularSelecionado() {
+        return tabelaCelulares.getSelectionModel().getSelectedItem();
+    }
+
     @FXML
     public void initialize() {
         colMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
@@ -45,6 +52,7 @@ public class CelularController {
         colArmazenamento.setCellValueFactory(new PropertyValueFactory<>("armazenamento"));
         colAcoes.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(null));
 
+        listaCelulares.addAll(celularDAO.listar());
         tabelaCelulares.setItems(listaCelulares);
 
         configurarColunaAcoes();
@@ -62,6 +70,7 @@ public class CelularController {
 
                 btnExcluir.setOnAction(e -> {
                     Celular celular = getTableView().getItems().get(getIndex());
+                    celularDAO.deletar(celular.getId());
                     listaCelulares.remove(celular);
                 });
 
@@ -70,7 +79,7 @@ public class CelularController {
                     txtMarca.setText(celular.getMarca());
                     txtModelo.setText(celular.getModelo());
                     txtArmazenamento.setText(String.valueOf(celular.getArmazenamento()));
-                    listaCelulares.remove(celular);
+                    celularDAO.atualizar(celular.getId(), celular);
                 });
 
                 hbox.setStyle("-fx-alignment: CENTER;");
@@ -89,27 +98,30 @@ public class CelularController {
     }
     @FXML
     public void onLigar() {
-        if (instanciarCelular()) {
-            celular.ligar();
-            mostrarAlerta("O ", celular.getMarca() + " do " + celular.getModelo() + " está ligando!");
+        Celular selecionado = getCelularSelecionado();
+        if (selecionado != null) {
+            selecionado.ligar();
+            mostrarAlerta("O ", selecionado.getMarca() + " do " + celular.getModelo() + " está ligando!");
         }
     }
 
     @FXML
     public void onDesligar() {
-        if (instanciarCelular()) {
-            celular.desligar();
-            mostrarAlerta("O ", celular.getMarca() + " do " + celular.getModelo() + " está desligando!");
+        Celular selecionado = getCelularSelecionado();
+        if (selecionado != null) {
+            selecionado.desligar();
+            mostrarAlerta("O ", selecionado.getMarca() + " do " + celular.getModelo() + " está desligando!");
         }
     }
 
     @FXML
     public void onExibirInfo() {
-        if (instanciarCelular()) {
-            celular.exibirInfo();
-            String info = "Marca: " + celular.getMarca() +
-                    "\nModelo: " + celular.getModelo() +
-                    "\nArmazenamento: " + celular.getArmazenamento() + " de memória";
+        Celular selecionado = getCelularSelecionado();
+        if (selecionado != null) {
+            selecionado.exibirInfo();
+            String info = "Marca: " + selecionado.getMarca() +
+                    "\nModelo: " + selecionado.getModelo() +
+                    "\nArmazenamento: " + selecionado.getArmazenamento() + " de memória";
             mostrarAlerta("Informações do Celular", info);
         }
     }
@@ -122,6 +134,7 @@ public class CelularController {
             int armazenamento = Integer.parseInt(txtArmazenamento.getText());
 
             Celular novoCelular = new Celular(marca, modelo, armazenamento);
+            celularDAO.inserir(novoCelular);
             listaCelulares.add(novoCelular);
 
             limparCampos();
