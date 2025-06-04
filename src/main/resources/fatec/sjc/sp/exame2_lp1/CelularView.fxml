@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fatec.sjc.sp.exame2_lp1.controller.CelularController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color: #fef6fb;">
+
+    <VBox spacing="15" layoutX="50" layoutY="30" prefWidth="700">
+        <Label text="CADASTRAR CELULAR" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-alignment: center;"/>
+
+        <Label text="Marca"/>
+        <TextField fx:id="txtMarca" promptText="Digite a marca do celular" prefHeight="40"/>
+        <Label text="Modelo"/>
+        <TextField fx:id="txtModelo" promptText="Digite o modelo do celular" prefHeight="40"/>
+        <Label text="Armazenamento"/>
+        <TextField fx:id="txtArmazenamento" promptText="Digite a quantidade do armazenamento" prefHeight="40"/>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button fx:id="btnCadastrar" text="Cadastrar" style="-fx-background-color: #28a745; -fx-text-fill: white;" onAction="#onCadastrar"/>
+            <Button fx:id="btnLimpar" text="Limpar" style="-fx-background-color: #f88379; -fx-text-fill: white;" onAction="#onLimpar"/>
+        </HBox>
+
+        <TableView fx:id="tabelaCelulares" prefHeight="350">
+            <columns>
+                <TableColumn fx:id="colMarca" text="Modelo" prefWidth="180"/>
+                <TableColumn fx:id="colModelo" text="Cor" prefWidth="180"/>
+                <TableColumn fx:id="colArmazenamento" text="Velocidade" prefWidth="100"/>
+                <TableColumn fx:id="colAcoes" text="Ações" prefWidth="200"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <HBox spacing="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+        <Button text="Ligar" onAction="#onLigar" />
+        <Button text="Desligar" onAction="#onDesligar" />
+        <Button text="Exibir Info" onAction="#onExibirInfo" />
+    </HBox>
+</AnchorPane>

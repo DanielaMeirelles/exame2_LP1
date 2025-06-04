@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fatec.sjc.sp.exame2_lp1.controller.ComputadorController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color: #fef6fb;">
+
+    <VBox spacing="15" layoutX="50" layoutY="30" prefWidth="700">
+        <Label text="CADASTRAR COMPUTADOR" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-alignment: center;"/>
+
+        <Label text="Marca"/>
+        <TextField fx:id="txtMarca" promptText="Digite a marca" prefHeight="40"/>
+        <Label text="Processador"/>
+        <TextField fx:id="txtProcessador" promptText="Digite o processador" prefHeight="40"/>
+        <Label text="Memória Ram"/>
+        <TextField fx:id="txtMemoriaRam" promptText="Digite apenas números" prefHeight="40"/>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button fx:id="btnCadastrar" text="Cadastrar" style="-fx-background-color: #28a745; -fx-text-fill: white;" onAction="#onCadastrar"/>
+            <Button fx:id="btnLimpar" text="Limpar" style="-fx-background-color: #f88379; -fx-text-fill: white;" onAction="#onLimpar"/>
+        </HBox>
+
+        <TableView fx:id="tabelaComputadores" prefHeight="350">
+            <columns>
+                <TableColumn fx:id="colMarca" text="Marca" prefWidth="180"/>
+                <TableColumn fx:id="colProcessador" text="Processador" prefWidth="100"/>
+                <TableColumn fx:id="colMemoriaRam" text="Memoria Ram" prefWidth="180"/>
+                <TableColumn fx:id="colAcoes" text="Ações" prefWidth="200"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <HBox spacing="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+        <Button text="Ligar" onAction="#onLigar" />
+        <Button text="Desligar" onAction="#onDesligar" />
+        <Button text="Info Sistema" onAction="#onInfoSistema" />
+    </HBox>
+</AnchorPane>

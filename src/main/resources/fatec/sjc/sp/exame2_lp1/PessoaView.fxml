@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fatec.sjc.sp.exame2_lp1.controller.PessoaController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color: #fef6fb;">
+
+    <VBox spacing="15" layoutX="50" layoutY="30" prefWidth="700">
+        <Label text="CADASTRAR PESSOA" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-alignment: center;"/>
+
+        <Label text="Nome"/>
+        <TextField fx:id="txtNome" promptText="Digite o nome" prefHeight="40"/>
+        <Label text="Idade"/>
+        <TextField fx:id="txtIdade" promptText="Digite a idade" prefHeight="40"/>
+        <Label text="Cpf"/>
+        <TextField fx:id="txtCpf" promptText="Digite conforme exemplo. Ex:000.000.000-00" prefHeight="40"/>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button fx:id="btnCadastrar" text="Cadastrar" style="-fx-background-color: #28a745; -fx-text-fill: white;" onAction="#onCadastrar"/>
+            <Button fx:id="btnLimpar" text="Limpar" style="-fx-background-color: #f88379; -fx-text-fill: white;" onAction="#onLimpar"/>
+        </HBox>
+
+        <TableView fx:id="tabelaPessoas" prefHeight="350">
+            <columns>
+                <TableColumn fx:id="colNome" text="Nome" prefWidth="180"/>
+                <TableColumn fx:id="colIdade" text="Idade" prefWidth="100"/>
+                <TableColumn fx:id="colCpf" text="Cpf" prefWidth="180"/>
+                <TableColumn fx:id="colAcoes" text="Ações" prefWidth="200"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <HBox spacing="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+        <Button text="Falar" onAction="#onFalar" />
+        <Button text="Andar" onAction="#onAndar" />
+        <Button text="Dormir" onAction="#onDormir" />
+    </HBox>
+</AnchorPane>
