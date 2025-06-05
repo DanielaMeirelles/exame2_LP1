@@ -5,10 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane style="-fx-background-color: #faf7fb;"
-            xmlns="http://javafx.com/javafx/17.0.12"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="fatec.sjc.sp.exame2_lp1.controller.TelaInicialController">
+<BorderPane style="-fx-background-color: #faf7fb;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fatec.sjc.sp.exame2_lp1.controller.TelaInicialController">
 
     <top>
         <VBox alignment="CENTER" spacing="10.0">
@@ -25,35 +22,35 @@
             <!-- Primeira linha -->
             <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1">
                 <ImageView fitHeight="120.0" fitWidth="200.0">
-                    <Image url="@/images/animais.png" />
+                    <Image url="@images/animais.png" />
                 </ImageView>
                 <Button onAction="#onAnimais" text="Animais" />
             </VBox>
 
             <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                 <ImageView fitHeight="120.0" fitWidth="200.0">
-                    <Image url="@/images/bicicletas.jpg" />
+                    <Image url="@images/bicicletas.jpg" />
                 </ImageView>
                 <Button onAction="#onBicicletas" text="Bicicletas" />
             </VBox>
 
             <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                 <ImageView fitHeight="120.0" fitWidth="200.0">
-                    <Image url="@/images/carros.jpg" />
+                    <Image url="@images/carros.jpg" />
                 </ImageView>
                 <Button onAction="#onCarros" text="Carros" />
             </VBox>
 
             <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
                 <ImageView fitHeight="120.0" fitWidth="200.0">
-                    <Image url="@/images/celulares.png" />
+                    <Image url="@images/celulares.png" />
                 </ImageView>
                 <Button onAction="#onCelulares" text="Celulares" />
             </VBox>
 
             <VBox alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1">
                 <ImageView fitHeight="120.0" fitWidth="200.0">
-                    <Image url="@/images/computadores.jpg" />
+                    <Image url="@images/computadores.jpg" />
                 </ImageView>
                 <Button onAction="#onComputadores" text="Computadores" />
             </VBox>
@@ -61,45 +58,58 @@
             <!-- Segunda linha -->
             <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2">
                 <ImageView fitHeight="120.0" fitWidth="200.0">
-                    <Image url="@/images/filmes.jpg" />
+                    <Image url="@images/filmes.jpg" />
                 </ImageView>
                 <Button onAction="#onFilmes" text="Filmes" />
             </VBox>
 
             <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
                 <ImageView fitHeight="120.0" fitWidth="200.0">
-                    <Image url="@/images/flores.jpg" />
+                    <Image url="@images/flores.jpg" />
                 </ImageView>
                 <Button onAction="#onFlores" text="Flores" />
             </VBox>
 
             <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
                 <ImageView fitHeight="120.0" fitWidth="200.0">
-                    <Image url="@/images/livros.png" />
+                    <Image url="@images/livros.png" />
                 </ImageView>
                 <Button onAction="#onLivros" text="Livros" />
             </VBox>
 
             <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
                 <ImageView fitHeight="120.0" fitWidth="200.0">
-                    <Image url="@/images/pessoas.jpeg" />
+                    <Image url="@images/pessoas.jpeg" />
                 </ImageView>
                 <Button onAction="#onPessoas" text="Pessoas" />
             </VBox>
 
             <VBox alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="2">
                 <ImageView fitHeight="120.0" fitWidth="200.0">
-                    <Image url="@/images/produtos.jpeg" />
+                    <Image url="@images/produtos.jpeg" />
                 </ImageView>
                 <Button onAction="#onProdutos" text="Produtos" />
             </VBox>
 
             <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="3">
                 <ImageView fitHeight="120.0" fitWidth="200.0">
-                    <Image url="@/images/fracao.png" />
+                    <Image url="@images/fracao.png" />
                 </ImageView>
                 <Button onAction="#onFracoes" text="Frações" />
             </VBox>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
         </GridPane>
     </center>
 </BorderPane>

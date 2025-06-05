@@ -13,32 +13,32 @@ public class TelaInicialController {
 
     @FXML
     private void onAnimais() {
-        abrirTela("/fatec/sjc/sp/tarefa3javafxlp1/AnimalView.fxml", "Animais");
+        abrirTela("/fatec/sjc/sp/exame2_lp1/AnimalView.fxml", "Animais");
     }
 
     @FXML
     private void onBicicletas() {
-        abrirTela("/fatec/sjc/sp/tarefa3javafxlp1/BicicletaView.fxml", "Bicicletas");
+        abrirTela("/fatec/sjc/sp/exame2_lp1/BicicletaView.fxml", "Bicicletas");
     }
 
     @FXML
     private void onCarros() {
-        abrirTela("/fatec/sjc/sp/tarefa3javafxlp1/CarroView.fxml", "Carros");
+        abrirTela("/fatec/sjc/sp/exame2_lp1/CarroView.fxml", "Carros");
     }
 
     @FXML
     private void onCelulares() {
-        abrirTela("/fatec/sjc/sp/tarefa3javafxlp1/CelularesView.fxml", "Celulares");
+        abrirTela("/fatec/sjc/sp/exame2_lp1/CelularesView.fxml", "Celulares");
     }
 
     @FXML
     private void onComputadores() {
-        abrirTela("/fatec/sjc/sp/tarefa3javafxlp1/ComputadorView.fxml", "Computadores");
+        abrirTela("/fatec/sjc/sp/exame2_lp1/ComputadorView.fxml", "Computadores");
     }
 
     @FXML
     private void onFilmes() {
-        abrirTela("/fatec/sjc/sp/tarefa3javafxlp1/FilmeView.fxml", "Filmes");
+        abrirTela("/fatec/sjc/sp/exame2_lp1/FilmeView.fxml", "Filmes");
     }
 
     @FXML
@@ -53,7 +53,7 @@ public class TelaInicialController {
 
     @FXML
     private void onPessoas() {
-        abrirTela("/fatec/sjc/sp/tarefa3javafxlp1/PessoaView.fxml", "Pessoas");
+        abrirTela("/fatec/sjc/sp/exame2_lp1/PessoaView.fxml", "Pessoas");
     }
 
     @FXML
