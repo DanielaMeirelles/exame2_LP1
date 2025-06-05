@@ -1,6 +1,7 @@
 package fatec.sjc.sp.exame2_lp1.dataBase;
 
 import fatec.sjc.sp.exame2_lp1.classes.Carro;
+import fatec.sjc.sp.exame2_lp1.dataBase.ConexaoMySQL;
 
 import java.sql.*;
 import java.util.ArrayList;

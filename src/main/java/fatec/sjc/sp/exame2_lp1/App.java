@@ -13,9 +13,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PessoaView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaInicialView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Cadastro Pessoa");
+        stage.setTitle("Menu Principal");
         stage.setScene(scene);
         stage.show();
     }

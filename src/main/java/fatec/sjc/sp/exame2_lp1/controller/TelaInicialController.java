@@ -33,12 +33,12 @@ public class TelaInicialController {
 
     @FXML
     private void onComputadores() {
-        exibirMensagem("Computadores selecionado.");
+        abrirTela("/fatec/sjc/sp/tarefa3javafxlp1/ComputadorView.fxml", "Computadores");
     }
 
     @FXML
     private void onFilmes() {
-        exibirMensagem("Filmes selecionado.");
+        abrirTela("/fatec/sjc/sp/tarefa3javafxlp1/FilmeView.fxml", "Filmes");
     }
 
     @FXML
@@ -68,7 +68,7 @@ public class TelaInicialController {
 
     private void exibirMensagem(String texto) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Categoria");
+        alert.setTitle("Categoria não implementada!");
         alert.setHeaderText(null);
         alert.setContentText(texto);
         alert.showAndWait();
